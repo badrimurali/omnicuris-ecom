@@ -1,9 +1,12 @@
 package com.badri.omniecom.omniecom.orders;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String customerId;
     private Long productId;

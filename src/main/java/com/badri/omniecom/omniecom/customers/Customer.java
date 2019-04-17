@@ -1,9 +1,12 @@
 package com.badri.omniecom.omniecom.customers;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "customers")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
     private String email;

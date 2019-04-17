@@ -1,11 +1,12 @@
 package com.badri.omniecom.omniecom.productcategories;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "productCategories")
 public class ProductCategories {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String categoryName;
 

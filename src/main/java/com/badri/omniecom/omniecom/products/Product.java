@@ -3,8 +3,11 @@ package com.badri.omniecom.omniecom.products;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "products")
+@SequenceGenerator(name="seq", initialValue=11, allocationSize=100)
 public class Product {
     @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "seq")
     private Long id;
     private String name;
     private long price;
@@ -12,9 +15,6 @@ public class Product {
     private String merchant;
     private String addressLine;
     private int addressPincode;
-
-    @ManyToOne
-    @JoinColumn(name="id", table="productCategories")
     private Long categoryId;
 
     public Long getId() {
