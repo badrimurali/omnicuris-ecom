@@ -34,6 +34,7 @@ public class OrderService {
                 newOrder.setCreatedDate(date);
                 newOrder.setLatestStatusUpdateDate(date);
                 newOrder.setOrderStatus(ACCEPTED);
+                newOrder.setPrice(product.getPrice());
                 orderRepository.save(newOrder);
             } else {
                 throw new IndexOutOfBoundsException("Unable to place order. Out of stock");

@@ -17,7 +17,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveOrEdit", method = RequestMethod.POST)
     public ResponseEntity<String> addCustomer(@RequestBody  Customer customer) {
         Response response = new Response();
         try {

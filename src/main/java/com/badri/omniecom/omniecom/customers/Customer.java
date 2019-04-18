@@ -3,7 +3,7 @@ package com.badri.omniecom.omniecom.customers;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name="seq", initialValue=11)
+@SequenceGenerator(name="seq", initialValue=5)
 @Table(name = "customers")
 public class Customer {
     @Id

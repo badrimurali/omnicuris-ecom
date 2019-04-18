@@ -3,13 +3,12 @@ package com.badri.omniecom.omniecom.orders;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name="seq", initialValue=1)
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "seq")
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String customerId;
+    private Long customerId;
     private Long productId;
     private Long price;
     private Long quantity;
@@ -17,6 +16,7 @@ public class Order {
     private Long createdDate;
     private String shippingAddressLine;
     private int shippingAddressPincode;
+    @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     private Long deliveryDate;
     private Long latestStatusUpdateDate;
@@ -27,14 +27,6 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
     }
 
     public Long getProductId() {
@@ -115,5 +107,13 @@ public class Order {
 
     public void setLatestStatusUpdateDate(Long latestStatusUpdateDate) {
         this.latestStatusUpdateDate = latestStatusUpdateDate;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +17,7 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<String> addOrder(Order order) {
+    public ResponseEntity<String> addOrder(@RequestBody Order order) {
         Response response = new Response();
         try {
             orderService.placeOrder(order);
@@ -49,6 +50,7 @@ public class OrderController {
         try {
             return ResponseEntity.ok().body(new Gson().toJson(orderService.getByCustomerId(customerId)));
         }catch (Exception e) {
+            e.printStackTrace();
             response.setStatus(false);
             response.setErrorMessage(e.getMessage());
             return ResponseEntity.badRequest().body(new Gson().toJson(response));
