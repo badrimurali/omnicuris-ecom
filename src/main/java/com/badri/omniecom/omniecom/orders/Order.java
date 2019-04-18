@@ -19,6 +19,7 @@ public class Order {
     private int shippingAddressPincode;
     private OrderStatus orderStatus;
     private Long deliveryDate;
+    private Long latestStatusUpdateDate;
 
     public Long getId() {
         return id;
@@ -106,5 +107,13 @@ public class Order {
 
     public void setDeliveryDate(Long deliveryDate) {
         this.deliveryDate = deliveryDate;
+    }
+
+    public Long getLatestStatusUpdateDate() {
+        return latestStatusUpdateDate;
+    }
+
+    public void setLatestStatusUpdateDate(Long latestStatusUpdateDate) {
+        this.latestStatusUpdateDate = latestStatusUpdateDate;
     }
 }

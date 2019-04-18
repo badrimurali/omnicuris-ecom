@@ -30,7 +30,9 @@ public class OrderService {
             if (product.getStock() >= newOrder.getQuantity()) {
                 product.setStock(product.getStock() - newOrder.getQuantity());
                 productsService.saveOrEdit(product);
-                newOrder.setCreatedDate(new Date().getTime());
+                Long date = new Date().getTime();
+                newOrder.setCreatedDate(date);
+                newOrder.setLatestStatusUpdateDate(date);
                 newOrder.setOrderStatus(ACCEPTED);
                 orderRepository.save(newOrder);
             } else {
@@ -48,6 +50,7 @@ public class OrderService {
         product.setStock(product.getStock() + order.getQuantity());
         productsService.saveOrEdit(product);
         order.setOrderStatus(CANCELLED);
+        order.setLatestStatusUpdateDate(new Date().getTime());
         orderRepository.save(order);
     }
 
@@ -60,6 +63,7 @@ public class OrderService {
         Order order = orderRepository.findById(orderId).orElseThrow(() -> new EntityNotFoundException("Invalid Order Id"));
         order.setDeliveryDate(new Date().getTime());
         order.setOrderStatus(DELIVERED);
+        order.setLatestStatusUpdateDate(new Date().getTime());
         orderRepository.save(order);
     }
 }
