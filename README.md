@@ -89,7 +89,7 @@ url = http://localhost:8080/product/all
 method = GET
 
 
-**Delete Product**
+**4. Delete Product**
 url = http://localhost:8080/product/{productId}
 method = DELETE
 
