@@ -3,10 +3,11 @@ package com.badri.omniecom.omniecom.orders;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name="seq", initialValue=1)
 @Table(name = "orders")
 public class Order {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "seq")
     private Long id;
     private String customerId;
     private Long productId;
@@ -16,6 +17,8 @@ public class Order {
     private Long createdDate;
     private String shippingAddressLine;
     private int shippingAddressPincode;
+    private OrderStatus orderStatus;
+    private Long deliveryDate;
 
     public Long getId() {
         return id;
@@ -87,5 +90,21 @@ public class Order {
 
     public void setShippingAddressPincode(int shippingAddressPincode) {
         this.shippingAddressPincode = shippingAddressPincode;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public Long getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Long deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 }

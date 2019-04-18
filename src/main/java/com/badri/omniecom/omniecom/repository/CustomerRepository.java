@@ -1,4 +1,9 @@
 package com.badri.omniecom.omniecom.repository;
 
-public class CustomerRepository {
+import com.badri.omniecom.omniecom.customers.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+    Customer findByName(String name);
+    Customer findByEmail(String email);
 }

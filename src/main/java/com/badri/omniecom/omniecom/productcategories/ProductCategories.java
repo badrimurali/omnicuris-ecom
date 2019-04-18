@@ -3,10 +3,11 @@ package com.badri.omniecom.omniecom.productcategories;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name="seq", initialValue=5)
 @Table(name = "productCategories")
 public class ProductCategories {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "seq")
     private Long id;
     private String categoryName;
 
