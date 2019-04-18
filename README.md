@@ -2,15 +2,19 @@
 Sample E-Commerce backend assignment
 
 
-#Intructions to run server.
+# Intructions to run server.
 **1. Replace username and password in application.yml with your mysql username and password.**
+
 **2. Run resources/static/ecom.sql to create sample database and tables.**
+
 **3. Install gradle dependencies**
+
 **4. Run OmniecomApplication file.**
+
 **5. Server will start to run with a message OmniecomApplication started**
 
 
-#ORDERS API
+# ORDERS API
 
 **1. Place Order**
  url = http://localhost:8080/order
