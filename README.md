@@ -17,9 +17,10 @@ Sample E-Commerce backend assignment
 # ORDERS API
 
 **1. Place Order**
- url = http://localhost:8080/order
- method = POST
- request body = {
+
+url = http://localhost:8080/order
+method = POST
+request body = {
                 	"customerId":1,
                 	"productId":2,
                 	"quantity": 2,
@@ -31,13 +32,17 @@ Sample E-Commerce backend assignment
 
 
 **2. Cancel Order**
+
 url = http://localhost:8080/order/{orderId}
- method = DELETE
+method = DELETE
 
- **3. All Accepted, dispatched, delivered orders of customer**
- url = http://localhost:8080/order/all/{customerId}
- method = GET
 
- **4. Mark Delivery**
- url = http://localhost:8080/order/markDelivery/{orderId}
- method = GET
+**3. All Accepted, dispatched, delivered orders of customer**
+
+url = http://localhost:8080/order/all/{customerId}
+method = GET
+
+**4. Mark Delivery**
+
+url = http://localhost:8080/order/markDelivery/{orderId}
+method = GET
